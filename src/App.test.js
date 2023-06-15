@@ -1,8 +1,18 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, logRoles } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("test 1", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  // Using logRoles
+  logRoles(screen.getByTestId("myRootDiv"))
+
+  // Test file extentions --> .test.js | .spec.js | .js(__tests__)
+  // Accessing Button using screen
+  const btnElement = screen.getByRole("button", {
+    name: "Test Button",
+    exact: false,
+  });
+
+  expect(btnElement).toBeInTheDocument();
 });
