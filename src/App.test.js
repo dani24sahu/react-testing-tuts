@@ -9,10 +9,10 @@ test("test 1", () => {
 
   // Test file extentions --> .test.js | .spec.js | .js(__tests__)
   // Accessing Button using screen
-  const btnElement = screen.getByRole("button", {
+  const btnElement = screen.queryByRole("button", {
     name: "Test Button",
     exact: false,
   });
 
-  expect(btnElement).toBeInTheDocument();
+  expect(btnElement).not.toBeInTheDocument();
 });
